@@ -1,11 +1,10 @@
 import {useState}  from "react";
 import {Routes, Route} from 'react-router-dom';
-import {getUser} from "./utilities/users-service";
+import {getUser} from "./utilities/user-service";
 import AuthPage from "./pages/AuthPage";
 import NewOrderPage from "./pages/NewOrderPage";
 import OrderHistoryPage from "./pages/OrderHistoryPage";
 import Navbar from "./components/Navbar";
-import LoginForm from "./components/LoginForm";
 import './App.css';
 
 

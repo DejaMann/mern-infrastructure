@@ -1,5 +1,5 @@
 import {Link, NavLink} from 'react-router-dom'
-import * as userService from "../utilities/users-service"
+import * as userService from "../utilities/user-service"
 
 const Navbar = ({user, setUser}) => {
     const handleLogOut = () => {

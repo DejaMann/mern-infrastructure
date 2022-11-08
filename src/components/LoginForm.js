@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import * as usersService from "./users-service"
+import * as userService from "../utilities/user-service"
 
 export default function LoginForm ({setUser}) {
     const [credentials, setCredentials] = useState({
@@ -9,7 +9,7 @@ export default function LoginForm ({setUser}) {
     const [error, setError] = useState('')
 
     function handleChange(event) {
-        setCredentials ({ ... credentials, [event.target.name]: event.target.value })
+        setCredentials ({ ...credentials, [event.target.name]: event.target.value })
         setError('');
     }
     async function handleSubmit(event) {
@@ -19,7 +19,7 @@ export default function LoginForm ({setUser}) {
             // The promise returned by the signUp service method
             // will resolve to the user object included in
             // the payload of the JSON Web Token (JWT)
-            const user = await usersService.login(credentials);
+            const user = await userService.login(credentials);
             setUser(user)
         } catch {
             setError('Login Failed - Try Again')
@@ -33,6 +33,7 @@ export default function LoginForm ({setUser}) {
                     <label>Email</label>
                     <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
 
+                    <label>Password</label>
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
 
                     <button type="submit">LOG IN</button>
@@ -42,3 +43,4 @@ export default function LoginForm ({setUser}) {
         </div>
     );
 }
+
